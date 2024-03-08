@@ -1,0 +1,109 @@
+\documentclass{myreport}
+
+\usepackage{calc}
+\usepackage{xparse}
+\usepackage{float}
+
+% font
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Schola}
+\setmathfont{TeX Gyre Schola Math}
+\usepackage{xspace}
+
+% maths
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{siunitx}
+\DeclareSIUnit{\nothing}{\relax}
+\sisetup{group-digits=integer}
+\sisetup{group-separator={,}}
+\sisetup{group-minimum-digits=4}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+% page layout
+\usepackage{standalone}
+\usepackage[margin=3cm]{geometry}
+
+% bibliography
+\usepackage[
+    backend=biber,
+    style=bibstyle,
+    datamodel=bibmodel,
+    refsection=part,
+    defernumbers=true,
+]{biblatex}
+\defbibheading{bibliography}[\bibname]{%
+    \chapter*{#1}%
+    \markright{\MakeUppercase{#1}}}
+\addbibresource{bibliography.bib}
+
+% list control
+\usepackage{enumitem}
+
+% tables
+\usepackage{tabularray}
+\UseTblrLibrary{counter}
+\UseTblrLibrary{functional}
+\usepackage[legacy]{csvsimple}
+
+% figures
+\usepackage{subcaption,graphicx,import}
+
+% strikeout
+\usepackage{soul}
+
+% code listings
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    captionpos=b,
+}
+
+% tikz
+\usepackage{tikz,pgfgantt}
+\usetikzlibrary{arrows.meta,calc,fit,positioning}
+\tikzset{>={Stealth[length=5pt]}}
+
+% graphs
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% hyperlinks
+% @NOTE: these must be the last loaded packages
+\usepackage[
+    bookmarksnumbered=true,
+    colorlinks=true,
+    allcolors=blue,
+    linktoc=all,
+]{hyperref}
+\usepackage{cleveref}
+
+\title{
+    Report Title \\
+    Here
+}
+\subtitle{
+    ELECxxxxM: Module Title Here \\
+    University of Leeds
+}
+\author{
+    Franklin Plowman \\
+    201445095 \\
+    \href{mailto:el20fgp@leeds.ac.uk}{el20fgp@leeds.ac.uk} \\
+}
+\date{\today}
+
+\begin{document}
+    \frontmatter
+    \maketitle
+    \include{academic_integrity}
+
+    \mainmatter
+    \pagestyle{plain}
+    \tableofcontents
+
+    \printbibliography
+\end{document}
